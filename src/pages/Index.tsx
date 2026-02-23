@@ -11,7 +11,7 @@ import CTASection from "@/components/CTASection";
 import Footer from "@/components/Footer";
 
 const Index = () => (
-  <div className="min-h-screen bg-background">
+  <div className="min-h-screen bg-background transition-colors duration-300">
     <Navbar />
     <HeroSection />
     <AuthoritySection />
