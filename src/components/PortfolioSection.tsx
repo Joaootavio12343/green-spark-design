@@ -6,13 +6,13 @@ import portfolio2 from "@/assets/portfolio-2.jpg";
 import portfolio3 from "@/assets/portfolio-3.jpg";
 import portfolio4 from "@/assets/portfolio-4.jpg";
 
-const categories = ["Todos", "Logo", "Social Media", "Identidade Visual", "Landing Page"];
+const categories = ["Todos", "Logo", "Social Media", "Identidade Visual"];
 
 const projects = [
   { id: 1, title: "Logo Premium", cat: "Logo", desc: "Marca moderna com gradiente para startup de tecnologia.", img: portfolio1 },
   { id: 2, title: "Social Media Pack", cat: "Social Media", desc: "Pack completo de templates para Instagram e stories.", img: portfolio2 },
   { id: 3, title: "Identidade Visual Completa", cat: "Identidade Visual", desc: "Papelaria completa, cartões, envelope e manual de marca.", img: portfolio3 },
-  { id: 4, title: "Landing Page Conversão", cat: "Landing Page", desc: "Design de landing page dark tech com alta taxa de conversão.", img: portfolio4 },
+  { id: 4, title: "Logo Minimalista", cat: "Logo", desc: "Logotipo clean e sofisticado para marca premium.", img: portfolio4 },
 ];
 
 const PortfolioSection = () => {

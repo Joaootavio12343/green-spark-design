@@ -64,7 +64,7 @@ const Footer = () => (
 
       <div className="border-t border-border mt-10 pt-6 text-center">
         <p className="text-xs text-muted-foreground">
-          © 2025 Vértice Studio. Todos os direitos reservados.
+          © 2025 João Otávio. Todos os direitos reservados.
         </p>
       </div>
     </div>
