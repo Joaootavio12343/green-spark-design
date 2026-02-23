@@ -1,0 +1,82 @@
+import { useRef } from "react";
+import { motion, useInView } from "framer-motion";
+import { Star } from "lucide-react";
+
+const testimonials = [
+  {
+    name: "Mariana Costa",
+    role: "CEO, Florescer Digital",
+    text: "O trabalho superou todas as expectativas! Minha marca finalmente transmite a seriedade e inovação que eu precisava. Os clientes comentam o tempo todo sobre o visual.",
+  },
+  {
+    name: "Rafael Oliveira",
+    role: "Fundador, Café Artesanal",
+    text: "Profissionalismo impecável. A identidade visual que recebi transformou completamente meu negócio. As vendas aumentaram 40% após a nova marca.",
+  },
+  {
+    name: "Juliana Santos",
+    role: "Diretora de Marketing, TechBR",
+    text: "Atendimento rápido, criatividade de outro nível e resultado impactante. O design das nossas redes sociais gerou 3x mais engajamento!",
+  },
+  {
+    name: "Lucas Pereira",
+    role: "Empreendedor",
+    text: "Investir na identidade visual foi a melhor decisão que tomei. O retorno foi imediato — meus clientes começaram a me ver de forma totalmente diferente.",
+  },
+];
+
+const TestimonialsSection = () => {
+  const ref = useRef(null);
+  const inView = useInView(ref, { once: true, margin: "-80px" });
+
+  return (
+    <section className="section-padding relative">
+      <div className="container mx-auto" ref={ref}>
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={inView ? { opacity: 1, y: 0 } : {}}
+          className="text-center mb-14"
+        >
+          <span className="text-primary text-sm font-semibold uppercase tracking-wider">
+            Depoimentos
+          </span>
+          <h2 className="font-display text-3xl md:text-4xl font-bold mt-3">
+            O que dizem <span className="text-gradient">meus clientes</span>
+          </h2>
+        </motion.div>
+
+        <div className="grid md:grid-cols-2 gap-6">
+          {testimonials.map((t, i) => (
+            <motion.div
+              key={t.name}
+              initial={{ opacity: 0, y: 20 }}
+              animate={inView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.4, delay: i * 0.1 }}
+              className="glass-card rounded-2xl p-6 border-primary/10 hover:border-primary/25 transition-all duration-300"
+            >
+              <div className="flex gap-1 mb-4">
+                {Array.from({ length: 5 }).map((_, j) => (
+                  <Star key={j} size={14} className="fill-primary text-primary" />
+                ))}
+              </div>
+              <p className="text-muted-foreground text-sm leading-relaxed mb-5 italic">
+                "{t.text}"
+              </p>
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center text-primary font-display font-bold text-sm">
+                  {t.name[0]}
+                </div>
+                <div>
+                  <p className="font-semibold text-sm text-foreground">{t.name}</p>
+                  <p className="text-xs text-muted-foreground">{t.role}</p>
+                </div>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default TestimonialsSection;
