@@ -12,7 +12,7 @@ export function TestimonialsSection() {
     },
     {
       name: "Mariana Costa",
-      role: "Designer",
+      role: "Loja Online",
       content:
         "O resultado final superou minhas expectativas. Recomendo muito!",
     },
