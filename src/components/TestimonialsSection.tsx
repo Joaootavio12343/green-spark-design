@@ -4,19 +4,19 @@ import { Star } from "lucide-react";
 
 const testimonials = [
   {
-    name: "Mariana Costa",
-    role: "CEO, Florescer Digital",
-    text: "O trabalho superou todas as expectativas! Minha marca finalmente transmite a seriedade e inovação que eu precisava. Os clientes comentam o tempo todo sobre o visual.",
+    name: "Ricardo Almeida",
+    role: "CEO | Empresa de Tecnologia",
+    text: "Implementamos rápido e os resultados apareceram no primeiro mês. Mais organização e mais produtividade.",
   },
   {
-    name: "Rafael Oliveira",
-    role: "Fundador, Café Artesanal",
-    text: "Profissionalismo impecável. A identidade visual que recebi transformou completamente meu negócio. As vendas aumentaram 40% após a nova marca.",
+    name: "Fernanda Costa",
+    role: "CEO | Agência de Marketing Digital",
+    text: "Profissionalismo impecável. A identidade visual que recebi transformou completamente meu negócio.",
   },
   {
     name: "Juliana Santos",
-    role: "Diretora de Marketing, TechBR",
-    text: "Atendimento rápido, criatividade de outro nível e resultado impactante. O design das nossas redes sociais gerou 3x mais engajamento!",
+    role: "CEO | E-commerce de Moda",
+    text: "Melhorou a experiência do cliente e aumentou nossa taxa de recompra.",
   },
   {
     name: "Lucas Pereira",
