@@ -24,11 +24,11 @@ const testimonials = [
   {
     name: "Lucas Pereira",
     role: "Empreendedor",
-    text: "Investir na identidade visual foi a melhor decisão que tomei.",
+    text: "Investir na identidade visual foi a melhor decisão que tomei. O retorno foi imediato — meus clientes começaram a me ver de forma totalmente diferente.",
   },
 ];
 
-export default function TestimonialsSection() {
+const TestimonialsSection = () => {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: "-80px" });
 
@@ -38,6 +38,7 @@ export default function TestimonialsSection() {
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.5 }}
           className="text-center mb-14"
         >
           <span className="text-primary text-sm font-semibold uppercase tracking-wider">
@@ -57,36 +58,38 @@ export default function TestimonialsSection() {
               transition={{ duration: 0.4, delay: i * 0.1 }}
               className="list-none"
             >
-              {/* ESTRUTURA IGUAL AO EXEMPLO ORIGINAL */}
-              <div className="relative h-full rounded-2xl border border-border p-2">
-                
+              <div className="relative h-full rounded-2xl border border-border p-[2px]">
+
+                {/* Glow */}
                 <GlowingEffect
-                  spread={40}
+                  spread={50}
                   glow={true}
                   disabled={false}
-                  proximity={80}
-                  inactiveZone={0}
-                  borderWidth={4}
+                  proximity={90}
+                  inactiveZone={0.01}
+                  borderWidth={3}
                 />
 
-                <div className="relative flex h-full flex-col justify-between gap-6 overflow-hidden rounded-xl border border-primary/10 bg-background p-6 shadow-sm transition-all duration-300 hover:border-primary/30">
-                  
-                  <div>
-                    <div className="flex gap-1 mb-4">
-                      {Array.from({ length: 5 }).map((_, j) => (
-                        <Star
-                          key={j}
-                          size={14}
-                          className="fill-primary text-primary"
-                        />
-                      ))}
-                    </div>
+                {/* Card */}
+                <div className="relative glass-card rounded-2xl p-6 h-full transition-all duration-300">
 
-                    <p className="text-muted-foreground text-sm leading-relaxed mb-6 italic">
-                      "{t.text}"
-                    </p>
+                  {/* Estrelas */}
+                  <div className="flex gap-1 mb-4">
+                    {Array.from({ length: 5 }).map((_, j) => (
+                      <Star
+                        key={j}
+                        size={14}
+                        className="fill-primary text-primary"
+                      />
+                    ))}
                   </div>
 
+                  {/* Texto */}
+                  <p className="text-muted-foreground text-sm leading-relaxed mb-5 italic">
+                    "{t.text}"
+                  </p>
+
+                  {/* Autor */}
                   <div className="flex items-center gap-3">
                     <div className="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center text-primary font-display font-bold text-sm">
                       {t.name[0]}
@@ -109,4 +112,6 @@ export default function TestimonialsSection() {
       </div>
     </section>
   );
-}
+};
+
+export default TestimonialsSection;
