@@ -3,7 +3,7 @@
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import { Star } from "lucide-react";
-import { GlowingEffect } from "@/components/ui/glowing-effect";
+import { GlowingEffect } from "./ui/glowing-effect";
 
 const testimonials = [
   {
@@ -35,7 +35,6 @@ export default function TestimonialsSection() {
   return (
     <section className="section-padding relative">
       <div className="container mx-auto" ref={ref}>
-        {/* Título */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
@@ -50,7 +49,6 @@ export default function TestimonialsSection() {
           </h2>
         </motion.div>
 
-        {/* Grid */}
         <div className="grid md:grid-cols-2 gap-6">
           {testimonials.map((t, i) => (
             <motion.div
@@ -58,9 +56,8 @@ export default function TestimonialsSection() {
               initial={{ opacity: 0, y: 20 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.4, delay: i * 0.1 }}
-              className="relative rounded-2xl group"
+              className="relative rounded-2xl"
             >
-              {/* Efeito RGB */}
               <GlowingEffect
                 disabled={false}
                 proximity={80}
@@ -70,9 +67,7 @@ export default function TestimonialsSection() {
                 className="rounded-2xl"
               />
 
-              {/* Card */}
               <div className="relative z-10 rounded-2xl p-6 bg-zinc-900/80 backdrop-blur-2xl border border-white/5 shadow-xl shadow-black/30 transition-all duration-300">
-                {/* Estrelas */}
                 <div className="flex gap-1 mb-4">
                   {Array.from({ length: 5 }).map((_, j) => (
                     <Star
@@ -83,12 +78,10 @@ export default function TestimonialsSection() {
                   ))}
                 </div>
 
-                {/* Texto */}
                 <p className="text-muted-foreground text-sm leading-relaxed mb-5 italic">
                   "{t.text}"
                 </p>
 
-                {/* Autor */}
                 <div className="flex items-center gap-3">
                   <div className="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center text-primary font-display font-bold text-sm">
                     {t.name[0]}
