@@ -53,10 +53,9 @@ const TestimonialsSection = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.4, delay: i * 0.1 }}
-              className="relative"
             >
-              {/* 🔥 WRAPPER DO GLOW */}
-              <div className="relative rounded-2xl border border-primary/10 hover:border-primary/25 transition-all duration-300">
+              {/* 🔥 ESTRUTURA CORRETA PARA O GLOW */}
+              <div className="relative h-full rounded-2xl border border-border p-[2px]">
                 
                 <GlowingEffect
                   spread={40}
@@ -67,8 +66,8 @@ const TestimonialsSection = () => {
                   borderWidth={3}
                 />
 
-                {/* CARD ORIGINAL (INALTERADO) */}
-                <div className="relative glass-card rounded-2xl p-6">
+                <div className="relative h-full glass-card rounded-2xl p-6 border border-primary/10 hover:border-primary/25 transition-all duration-300 bg-background">
+                  
                   <div className="flex gap-1 mb-4">
                     {Array.from({ length: 5 }).map((_, j) => (
                       <Star
@@ -96,8 +95,8 @@ const TestimonialsSection = () => {
                       </p>
                     </div>
                   </div>
-                </div>
 
+                </div>
               </div>
             </motion.div>
           ))}
