@@ -24,14 +24,13 @@ const Navbar = () => {
 
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
         scrolled ? "glass py-3" : "py-5 bg-transparent"
       }`}
     >
       <div className="container mx-auto flex items-center justify-between px-4 md:px-8">
         <Logo />
 
-        {/* Desktop */}
         <div className="hidden md:flex items-center gap-8">
           {links.map((l) => (
             <a
@@ -44,16 +43,15 @@ const Navbar = () => {
           ))}
           <ThemeToggle />
           <a
-            href="https://wa.me/5500000000000"
+            href="https://wa.me/5537998469852?text=Olá,%20vim%20pelo%20site%20e%20quero%20um%20orçamento."
             target="_blank"
             rel="noopener noreferrer"
-            className="px-5 py-2.5 rounded-lg bg-primary text-primary-foreground font-semibold text-sm hover:glow-box-strong transition-all duration-300"
+            className="px-5 py-2.5 rounded-lg bg-primary text-primary-foreground font-semibold text-sm hover:glow-box-strong transition-all duration-300 btn-glow"
           >
             Solicitar Orçamento
           </a>
         </div>
 
-        {/* Mobile toggle */}
         <div className="flex items-center gap-3 md:hidden">
           <ThemeToggle />
           <button
@@ -66,7 +64,6 @@ const Navbar = () => {
         </div>
       </div>
 
-      {/* Mobile menu */}
       {open && (
         <div className="md:hidden glass mt-2 mx-4 rounded-xl p-6 animate-scale-in">
           <div className="flex flex-col gap-4">
@@ -81,7 +78,7 @@ const Navbar = () => {
               </a>
             ))}
             <a
-              href="https://wa.me/5500000000000"
+              href="https://wa.me/5537998469852?text=Olá,%20vim%20pelo%20site%20e%20quero%20um%20orçamento."
               target="_blank"
               rel="noopener noreferrer"
               className="mt-2 px-5 py-2.5 rounded-lg bg-primary text-primary-foreground font-semibold text-sm text-center"

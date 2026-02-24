@@ -40,16 +40,15 @@ const PortfolioSection = () => {
           </h2>
         </motion.div>
 
-        {/* Filters */}
         <div className="flex flex-wrap justify-center gap-2 mb-10">
           {categories.map((c) => (
             <button
               key={c}
               onClick={() => setFilter(c)}
-              className={`px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 ${
+              className={`px-4 py-2 rounded-lg text-sm font-medium transition-all duration-300 ${
                 filter === c
-                  ? "bg-primary text-primary-foreground"
-                  : "bg-secondary text-muted-foreground hover:text-foreground"
+                  ? "bg-primary text-primary-foreground glow-box"
+                  : "bg-secondary text-muted-foreground hover:text-foreground hover:bg-secondary/80"
               }`}
             >
               {c}
@@ -57,8 +56,7 @@ const PortfolioSection = () => {
           ))}
         </div>
 
-        {/* Grid */}
-        <div className="grid sm:grid-cols-2 lg:grid-cols-2 gap-6">
+        <div className="grid sm:grid-cols-2 gap-6">
           {filtered.map((p, i) => (
             <motion.div
               key={p.id}
@@ -66,7 +64,7 @@ const PortfolioSection = () => {
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.4, delay: i * 0.1 }}
               onClick={() => setSelected(p)}
-              className="group relative rounded-2xl overflow-hidden cursor-pointer gradient-border"
+              className="group relative rounded-2xl overflow-hidden cursor-pointer gradient-border glass-card"
             >
               <img
                 src={p.img}
@@ -89,16 +87,15 @@ const PortfolioSection = () => {
         </div>
       </div>
 
-      {/* Modal */}
       {selected && (
         <div
-          className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-background/80 backdrop-blur-sm"
+          className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-background/80 backdrop-blur-md"
           onClick={() => setSelected(null)}
         >
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
-            className="glass-card rounded-2xl max-w-2xl w-full overflow-hidden"
+            className="glass-card rounded-2xl max-w-2xl w-full overflow-hidden border-primary/20"
             onClick={(e) => e.stopPropagation()}
           >
             <img
@@ -127,10 +124,10 @@ const PortfolioSection = () => {
                 </button>
               </div>
               <a
-                href="https://wa.me/5500000000000"
+                href="https://wa.me/5537998469852?text=Olá,%20vim%20pelo%20site%20e%20quero%20um%20orçamento."
                 target="_blank"
                 rel="noopener noreferrer"
-                className="mt-6 inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-primary text-primary-foreground font-semibold text-sm"
+                className="mt-6 inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-primary text-primary-foreground font-semibold text-sm btn-glow"
               >
                 Quero algo similar
                 <ExternalLink size={14} />
