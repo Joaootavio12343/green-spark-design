@@ -16,7 +16,7 @@ const ProcessSection = () => {
 
   return (
     <section className="section-padding relative">
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent" />
+      <div className="section-divider mb-20" />
 
       <div className="container mx-auto" ref={ref}>
         <motion.div
@@ -33,7 +33,6 @@ const ProcessSection = () => {
         </motion.div>
 
         <div className="relative max-w-3xl mx-auto">
-          {/* Vertical line */}
           <div className="absolute left-6 md:left-8 top-0 bottom-0 w-px bg-gradient-to-b from-primary/50 via-primary/20 to-transparent" />
 
           <div className="space-y-10">
@@ -45,14 +44,12 @@ const ProcessSection = () => {
                 transition={{ duration: 0.4, delay: i * 0.15 }}
                 className="flex gap-5 items-start relative"
               >
-                <div className="relative z-10 w-12 h-12 md:w-16 md:h-16 rounded-xl bg-secondary flex items-center justify-center border border-primary/20 flex-shrink-0">
+                <div className="relative z-10 w-12 h-12 md:w-16 md:h-16 rounded-xl bg-secondary flex items-center justify-center border border-primary/20 flex-shrink-0 hover:glow-box transition-all duration-300">
                   <s.icon size={22} className="text-primary" />
                 </div>
                 <div className="pt-1 md:pt-3">
                   <h3 className="font-display font-bold text-lg">{s.title}</h3>
-                  <p className="text-sm text-muted-foreground mt-1">
-                    {s.desc}
-                  </p>
+                  <p className="text-sm text-muted-foreground mt-1">{s.desc}</p>
                 </div>
               </motion.div>
             ))}

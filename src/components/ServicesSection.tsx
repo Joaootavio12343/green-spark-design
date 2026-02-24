@@ -29,7 +29,7 @@ const ServicesSection = () => {
 
   return (
     <section id="servicos" className="section-padding relative">
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent" />
+      <div className="section-divider mb-20" />
 
       <div className="container mx-auto" ref={ref}>
         <motion.div
@@ -53,7 +53,7 @@ const ServicesSection = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.4, delay: i * 0.1 }}
-              className="glass-card rounded-2xl p-6 md:p-8 hover-glow hover:border-primary/20 transition-all duration-300 group"
+              className="glass-card rounded-2xl p-6 md:p-8 hover:border-primary/20 transition-all duration-300 group"
             >
               <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-5 group-hover:glow-box transition-all duration-300">
                 <s.icon size={22} className="text-primary" />

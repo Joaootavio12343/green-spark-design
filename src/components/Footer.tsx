@@ -5,7 +5,6 @@ const Footer = () => (
   <footer className="border-t border-border py-12 px-4 md:px-8">
     <div className="container mx-auto">
       <div className="grid md:grid-cols-3 gap-10">
-        {/* Brand */}
         <div>
           <Logo />
           <p className="text-sm text-muted-foreground mt-4 max-w-xs">
@@ -13,28 +12,32 @@ const Footer = () => (
           </p>
         </div>
 
-        {/* Links */}
         <div>
           <h4 className="font-display font-semibold text-sm mb-4">Links Rápidos</h4>
           <div className="flex flex-col gap-2">
-            {["Início", "Portfólio", "Serviços", "Preços", "FAQ"].map((l) => (
+            {[
+              { label: "Início", href: "#hero" },
+              { label: "Portfólio", href: "#portfolio" },
+              { label: "Serviços", href: "#servicos" },
+              { label: "Preços", href: "#precos" },
+              { label: "FAQ", href: "#faq" },
+            ].map((l) => (
               <a
-                key={l}
-                href={`#${l.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "")}`}
+                key={l.label}
+                href={l.href}
                 className="text-sm text-muted-foreground hover:text-primary transition-colors"
               >
-                {l}
+                {l.label}
               </a>
             ))}
           </div>
         </div>
 
-        {/* Contact */}
         <div>
           <h4 className="font-display font-semibold text-sm mb-4">Contato</h4>
           <div className="flex flex-col gap-3">
             <a
-              href="https://wa.me/5500000000000"
+              href="https://wa.me/5537998469852"
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors"
@@ -42,10 +45,10 @@ const Footer = () => (
               <MessageCircle size={16} /> WhatsApp
             </a>
             <a
-              href="mailto:contato@verticestudio.com"
+              href="mailto:contato@joaootavio.com"
               className="flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors"
             >
-              <Mail size={16} /> contato@verticestudio.com
+              <Mail size={16} /> contato@joaootavio.com
             </a>
           </div>
           <div className="flex gap-3 mt-5">

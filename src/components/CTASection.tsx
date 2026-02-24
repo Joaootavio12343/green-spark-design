@@ -8,9 +8,9 @@ const CTASection = () => {
 
   return (
     <section className="section-padding relative overflow-hidden" ref={ref}>
-      {/* BG glow */}
       <div className="absolute inset-0 bg-gradient-to-b from-background via-primary/5 to-background" />
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] rounded-full bg-primary/10 blur-[150px]" />
+      <div className="absolute inset-0 bg-noise" />
 
       <motion.div
         initial={{ opacity: 0, y: 30 }}
@@ -28,10 +28,10 @@ const CTASection = () => {
           impressiona e converte.
         </p>
         <a
-          href="https://wa.me/5500000000000"
+          href="https://wa.me/5537998469852?text=Olá,%20vim%20pelo%20site%20e%20quero%20um%20orçamento."
           target="_blank"
           rel="noopener noreferrer"
-          className="group inline-flex items-center gap-3 px-10 py-4 rounded-xl bg-primary text-primary-foreground font-bold text-lg hover:glow-box-strong transition-all duration-300 animate-glow-pulse"
+          className="group inline-flex items-center gap-3 px-10 py-4 rounded-xl bg-primary text-primary-foreground font-bold text-lg hover:glow-box-strong transition-all duration-300 animate-glow-pulse btn-glow"
         >
           Quero Elevar Minha Marca
           <ArrowRight className="group-hover:translate-x-1 transition-transform" />
