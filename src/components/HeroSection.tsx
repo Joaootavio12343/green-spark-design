@@ -10,6 +10,7 @@ const DISCORD_LINK = "https://discord.gg/NGBZh2yKk7";
 /* BOTÃO MAGNÉTICO APPLE    */
 /* ───────────────────────── */
 
+import { RainbowButton } from "@/components/ui/rainbow-button";
 import { useEffect, useRef } from "react";
 
 export default function HeroButtons() {
