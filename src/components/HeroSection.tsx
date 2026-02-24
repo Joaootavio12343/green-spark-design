@@ -10,50 +10,45 @@ const DISCORD_LINK = "https://discord.gg/NGBZh2yKk7";
 /* BOTÃO MAGNÉTICO APPLE    */
 /* ───────────────────────── */
 
-function AppleMagneticButton({
-  children,
-  href,
-}: {
-  children: React.ReactNode;
-  href: string;
-}) {
-  const ref = useRef<HTMLAnchorElement>(null);
+import { useEffect, useRef } from "react";
 
-  const handleMove = useCallback((e: React.MouseEvent) => {
-    const el = ref.current;
-    if (!el) return;
+export default function HeroButtons() {
+  const containerRef = useRef<HTMLDivElement>(null);
 
-    const rect = el.getBoundingClientRect();
-    const x = (e.clientX - (rect.left + rect.width / 2)) * 0.25;
-    const y = (e.clientY - (rect.top + rect.height / 2)) * 0.25;
+  useEffect(() => {
+    const container = containerRef.current;
+    if (!container) return;
 
-    el.style.transform = `translate3d(${x}px, ${y}px, 0) scale(1.05)`;
+    let mouseX = 0;
+    let mouseY = 0;
+
+    let currentX = 0;
+    let currentY = 0;
+
+    const speed = 0.08; // quanto menor, mais suave
+
+    const handleMouseMove = (e: MouseEvent) => {
+      const rect = container.getBoundingClientRect();
+      mouseX = e.clientX - rect.left - rect.width / 2;
+      mouseY = e.clientY - rect.top - rect.height / 2;
+    };
+
+    const animate = () => {
+      currentX += (mouseX - currentX) * speed;
+      currentY += (mouseY - currentY) * speed;
+
+      container.style.transform = `translate(${currentX * 0.05}px, ${currentY * 0.05}px)`;
+
+      requestAnimationFrame(animate);
+    };
+
+    container.addEventListener("mousemove", handleMouseMove);
+    animate();
+
+    return () => {
+      container.removeEventListener("mousemove", handleMouseMove);
+    };
   }, []);
-
-  const handleLeave = useCallback(() => {
-    if (ref.current) {
-      ref.current.style.transform = "translate3d(0,0,0) scale(1)";
-    }
-  }, []);
-
-  return (
-    <a
-      ref={ref}
-      href={href}
-      target="_blank"
-      rel="noopener noreferrer"
-      onMouseMove={handleMove}
-      onMouseLeave={handleLeave}
-      className="group relative inline-flex items-center gap-2 px-7 py-3.5 rounded-xl bg-primary text-primary-foreground font-semibold btn-glow transition-all duration-300 will-change-transform overflow-hidden"
-    >
-      <span className="relative z-10 flex items-center gap-2">
-        {children}
-      </span>
-
-      <span className="absolute inset-0 rounded-xl bg-white/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-    </a>
-  );
-}
 
 /* ───────────────────────── */
 /* HERO ORIGINAL COMPLETO   */
