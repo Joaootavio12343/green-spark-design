@@ -6,9 +6,9 @@ import heroImage from "@/assets/hero-image.jpg";
 const WA_LINK = "https://wa.me/5537998469852?text=Olá,%20vim%20pelo%20site%20e%20quero%20um%20orçamento.";
 const DISCORD_LINK = "https://discord.gg/NGBZh2yKk7";
 
-/* ───────────────────────────────────────── */
-/* BOTÃO APPLE MAGNÉTICO                    */
-/* ───────────────────────────────────────── */
+/* ───────────────────────── */
+/* BOTÃO MAGNÉTICO APPLE    */
+/* ───────────────────────── */
 
 function AppleMagneticButton({
   children,
@@ -31,8 +31,9 @@ function AppleMagneticButton({
   }, []);
 
   const handleLeave = useCallback(() => {
-    if (!ref.current) return;
-    ref.current.style.transform = "translate3d(0,0,0) scale(1)";
+    if (ref.current) {
+      ref.current.style.transform = "translate3d(0,0,0) scale(1)";
+    }
   }, []);
 
   return (
@@ -43,24 +44,7 @@ function AppleMagneticButton({
       rel="noopener noreferrer"
       onMouseMove={handleMove}
       onMouseLeave={handleLeave}
-      className="
-        group
-        relative
-        inline-flex
-        items-center
-        gap-2
-        px-7
-        py-3.5
-        rounded-xl
-        bg-primary
-        text-primary-foreground
-        font-semibold
-        btn-glow
-        transition-all
-        duration-300
-        will-change-transform
-        overflow-hidden
-      "
+      className="group relative inline-flex items-center gap-2 px-7 py-3.5 rounded-xl bg-primary text-primary-foreground font-semibold btn-glow transition-all duration-300 will-change-transform overflow-hidden"
     >
       <span className="relative z-10 flex items-center gap-2">
         {children}
@@ -71,12 +55,13 @@ function AppleMagneticButton({
   );
 }
 
-/* ───────────────────────────────────────── */
-/* HERO ORIGINAL (INALTERADO)               */
-/* ───────────────────────────────────────── */
+/* ───────────────────────── */
+/* HERO ORIGINAL COMPLETO   */
+/* ───────────────────────── */
 
 const HeroSection = () => (
   <section id="hero" className="relative min-h-screen flex items-center overflow-hidden">
+    {/* Background effects */}
     <div className="absolute inset-0 bg-grid opacity-40" />
     <div className="absolute inset-0 bg-noise" />
     <div className="absolute top-1/4 -left-32 w-[500px] h-[500px] rounded-full bg-primary/8 blur-[150px]" />
@@ -86,6 +71,7 @@ const HeroSection = () => (
     <div className="container mx-auto px-4 md:px-8 pt-28 pb-20 relative z-10">
       <div className="grid lg:grid-cols-2 gap-12 items-center">
 
+        {/* TEXT */}
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
@@ -111,9 +97,9 @@ const HeroSection = () => (
             visual estratégica que gera resultados reais para o seu negócio.
           </p>
 
+          {/* BOTÕES PRINCIPAIS */}
           <div className="flex flex-wrap gap-4">
 
-            {/* 🔥 BOTÃO MODIFICADO AQUI */}
             <AppleMagneticButton href={WA_LINK}>
               Solicitar Orçamento
               <ArrowRight
@@ -122,7 +108,6 @@ const HeroSection = () => (
               />
             </AppleMagneticButton>
 
-            {/* BOTÃO ORIGINAL INALTERADO */}
             <a
               href="#portfolio"
               className="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl border border-border text-foreground font-semibold hover:border-primary/50 hover:text-primary transition-all duration-300"
@@ -132,8 +117,45 @@ const HeroSection = () => (
             </a>
           </div>
 
+          {/* CONTACT BUTTONS (MANTIDOS) */}
+          <div className="flex items-center gap-3 mt-8">
+            <a
+              href="https://wa.me/5537998469852"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-primary/10 border border-primary/20 text-primary text-sm font-medium hover:bg-primary/20 hover:border-primary/40 hover:glow-box transition-all duration-300"
+            >
+              <MessageCircle size={16} />
+              WhatsApp
+            </a>
+
+            <a
+              href={DISCORD_LINK}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-primary/10 border border-primary/20 text-primary text-sm font-medium hover:bg-primary/20 hover:border-primary/40 hover:glow-box transition-all duration-300"
+            >
+              <MessageCircle size={16} />
+              Discord
+            </a>
+          </div>
+
+          {/* STATS */}
+          <div className="flex gap-8 mt-12 pt-8 border-t border-border">
+            {[
+              { num: "150+", label: "Projetos" },
+              { num: "98%", label: "Satisfação" },
+              { num: "5+", label: "Anos exp." },
+            ].map((s) => (
+              <div key={s.label}>
+                <p className="font-display text-2xl font-bold text-gradient">{s.num}</p>
+                <p className="text-xs text-muted-foreground mt-1">{s.label}</p>
+              </div>
+            ))}
+          </div>
         </motion.div>
 
+        {/* IMAGE (INALTERADA) */}
         <motion.div
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
