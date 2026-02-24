@@ -13,6 +13,8 @@ const projects = [
   { id: 2, title: "Social Media Pack", cat: "Social Media", desc: "Pack completo de templates para Instagram e stories.", img: portfolio2 },
   { id: 3, title: "Identidade Visual Completa", cat: "Identidade Visual", desc: "Papelaria completa, cartões, envelope e manual de marca.", img: portfolio3 },
   { id: 4, title: "Logo Minimalista", cat: "Logo", desc: "Logotipo clean e sofisticado para marca premium.", img: portfolio4 },
+  { id: 5, title: "Branding Startup", cat: "Identidade Visual", desc: "Identidade completa para startup de fintech.", img: portfolio1 },
+  { id: 6, title: "Social Media Premium", cat: "Social Media", desc: "Design premium para redes sociais de marca de luxo.", img: portfolio2 },
 ];
 
 const PortfolioSection = () => {
