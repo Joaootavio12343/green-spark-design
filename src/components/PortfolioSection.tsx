@@ -13,6 +13,8 @@ const projects = [
   { id: 2, title: "Social Media Pack", cat: "Social Media", desc: "Pack completo de templates para Instagram e stories.", img: portfolio2 },
   { id: 3, title: "Identidade Visual Completa", cat: "Identidade Visual", desc: "Papelaria completa, cartões, envelope e manual de marca.", img: portfolio3 },
   { id: 4, title: "Logo Minimalista", cat: "Logo", desc: "Logotipo clean e sofisticado para marca premium.", img: portfolio4 },
+  { id: 5, title: "Branding Startup", cat: "Identidade Visual", desc: "Identidade completa para startup de fintech.", img: portfolio1 },
+  { id: 6, title: "Social Media Premium", cat: "Social Media", desc: "Design premium para redes sociais de marca de luxo.", img: portfolio2 },
 ];
 
 const PortfolioSection = () => {
@@ -56,23 +58,26 @@ const PortfolioSection = () => {
           ))}
         </div>
 
-        <div className="grid sm:grid-cols-2 gap-6">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {filtered.map((p, i) => (
             <motion.div
               key={p.id}
+              layout
               initial={{ opacity: 0, y: 20 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.4, delay: i * 0.1 }}
+              transition={{ duration: 0.4, delay: i * 0.08 }}
               onClick={() => setSelected(p)}
               className="group relative rounded-2xl overflow-hidden cursor-pointer gradient-border glass-card"
             >
               <img
                 src={p.img}
                 alt={p.title}
-                className="w-full aspect-[4/3] object-cover transition-transform duration-500 group-hover:scale-105"
+                className="w-full aspect-[4/3] object-cover transition-transform duration-700 group-hover:scale-110"
                 loading="lazy"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-background via-background/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
+              {/* Shine effect on hover */}
+              <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none bg-gradient-to-tr from-transparent via-primary/5 to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-background via-background/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
                 <div>
                   <p className="text-xs text-primary font-semibold uppercase tracking-wider">
                     {p.cat}

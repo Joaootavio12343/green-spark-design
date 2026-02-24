@@ -9,6 +9,7 @@ import PricingSection from "@/components/PricingSection";
 import FAQSection from "@/components/FAQSection";
 import CTASection from "@/components/CTASection";
 import Footer from "@/components/Footer";
+import WhatsAppFloat from "@/components/WhatsAppFloat";
 
 const Index = () => (
   <div className="min-h-screen bg-background transition-colors duration-300">
@@ -23,6 +24,7 @@ const Index = () => (
     <FAQSection />
     <CTASection />
     <Footer />
+    <WhatsAppFloat />
   </div>
 );
 
