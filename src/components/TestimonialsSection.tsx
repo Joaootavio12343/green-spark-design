@@ -1,3 +1,5 @@
+"use client";
+
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import { Star } from "lucide-react";
@@ -22,11 +24,11 @@ const testimonials = [
   {
     name: "Lucas Pereira",
     role: "Empreendedor",
-    text: "Investir na identidade visual foi a melhor decisão que tomei. O retorno foi imediato — meus clientes começaram a me ver de forma totalmente diferente.",
+    text: "Investir na identidade visual foi a melhor decisão que tomei.",
   },
 ];
 
-const TestimonialsSection = () => {
+export default function TestimonialsSection() {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: "-80px" });
 
@@ -46,41 +48,44 @@ const TestimonialsSection = () => {
           </h2>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 gap-6">
+        <ul className="grid md:grid-cols-2 gap-6">
           {testimonials.map((t, i) => (
-            <motion.div
+            <motion.li
               key={t.name}
               initial={{ opacity: 0, y: 20 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.4, delay: i * 0.1 }}
+              className="list-none"
             >
-              {/* 🔥 ESTRUTURA CORRETA PARA O GLOW */}
-              <div className="relative h-full rounded-2xl border border-border p-[2px]">
+              {/* ESTRUTURA IGUAL AO EXEMPLO ORIGINAL */}
+              <div className="relative h-full rounded-2xl border border-border p-2">
                 
                 <GlowingEffect
                   spread={40}
                   glow={true}
                   disabled={false}
-                  proximity={64}
-                  inactiveZone={0.01}
-                  borderWidth={3}
+                  proximity={80}
+                  inactiveZone={0}
+                  borderWidth={4}
                 />
 
-                <div className="relative h-full glass-card rounded-2xl p-6 border border-primary/10 hover:border-primary/25 transition-all duration-300 bg-background">
+                <div className="relative flex h-full flex-col justify-between gap-6 overflow-hidden rounded-xl border border-primary/10 bg-background p-6 shadow-sm transition-all duration-300 hover:border-primary/30">
                   
-                  <div className="flex gap-1 mb-4">
-                    {Array.from({ length: 5 }).map((_, j) => (
-                      <Star
-                        key={j}
-                        size={14}
-                        className="fill-primary text-primary"
-                      />
-                    ))}
-                  </div>
+                  <div>
+                    <div className="flex gap-1 mb-4">
+                      {Array.from({ length: 5 }).map((_, j) => (
+                        <Star
+                          key={j}
+                          size={14}
+                          className="fill-primary text-primary"
+                        />
+                      ))}
+                    </div>
 
-                  <p className="text-muted-foreground text-sm leading-relaxed mb-5 italic">
-                    "{t.text}"
-                  </p>
+                    <p className="text-muted-foreground text-sm leading-relaxed mb-6 italic">
+                      "{t.text}"
+                    </p>
+                  </div>
 
                   <div className="flex items-center gap-3">
                     <div className="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center text-primary font-display font-bold text-sm">
@@ -98,12 +103,10 @@ const TestimonialsSection = () => {
 
                 </div>
               </div>
-            </motion.div>
+            </motion.li>
           ))}
-        </div>
+        </ul>
       </div>
     </section>
   );
-};
-
-export default TestimonialsSection;
+}
