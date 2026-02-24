@@ -3,7 +3,7 @@
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import { Star } from "lucide-react";
-import { GlowingEffect } from "@/components/GlowingEffect"; // ajuste o caminho se necessário
+import { GlowingEffect } from "@/components/ui/glowing-effect"; // ajuste o caminho se necessário
 
 const testimonials = [
   {
