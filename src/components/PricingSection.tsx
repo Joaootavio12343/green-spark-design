@@ -5,7 +5,7 @@ import { Check, Sparkles, Crown, Rocket } from "lucide-react";
 const plans = [
   {
     name: "Essencial",
-    price: "R$ 497",
+    price: "R$ 52,90",
     desc: "Ideal para começar com o pé direito",
     badge: "Mais Escolhido",
     icon: Sparkles,
@@ -24,7 +24,7 @@ const plans = [
   },
   {
     name: "Profissional",
-    price: "R$ 1.297",
+    price: "R$ 210",
     desc: "Para marcas que querem se destacar",
     badge: null,
     icon: Crown,
@@ -43,7 +43,7 @@ const plans = [
   },
   {
     name: "Premium",
-    price: "R$ 2.497",
+    price: "R$ 550",
     desc: "Para marcas que querem dominar",
     badge: null,
     icon: Rocket,
