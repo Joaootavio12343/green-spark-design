@@ -58,23 +58,26 @@ const PortfolioSection = () => {
           ))}
         </div>
 
-        <div className="grid sm:grid-cols-2 gap-6">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {filtered.map((p, i) => (
             <motion.div
               key={p.id}
+              layout
               initial={{ opacity: 0, y: 20 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.4, delay: i * 0.1 }}
+              transition={{ duration: 0.4, delay: i * 0.08 }}
               onClick={() => setSelected(p)}
               className="group relative rounded-2xl overflow-hidden cursor-pointer gradient-border glass-card"
             >
               <img
                 src={p.img}
                 alt={p.title}
-                className="w-full aspect-[4/3] object-cover transition-transform duration-500 group-hover:scale-105"
+                className="w-full aspect-[4/3] object-cover transition-transform duration-700 group-hover:scale-110"
                 loading="lazy"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-background via-background/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
+              {/* Shine effect on hover */}
+              <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none bg-gradient-to-tr from-transparent via-primary/5 to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-background via-background/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
                 <div>
                   <p className="text-xs text-primary font-semibold uppercase tracking-wider">
                     {p.cat}
