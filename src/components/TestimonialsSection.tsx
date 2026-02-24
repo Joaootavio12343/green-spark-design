@@ -25,7 +25,7 @@ export function TestimonialsSection() {
   ];
 
   return (
-    <section id="testimonials" className="py-20 bg-background">
+    <section id="testimonials" className="py-20">
       <div className="container mx-auto px-6">
         <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
           Depoimentos
@@ -35,23 +35,24 @@ export function TestimonialsSection() {
           {testimonials.map((testimonial, index) => (
             <div
               key={index}
-              className="relative rounded-xl overflow-hidden"
+              className="relative rounded-xl"
             >
-              {/* Glow */}
+              {/* Glow Layer */}
               <GlowingEffect
-                blur={8}
+                blur={10}
                 inactiveZone={0.7}
-                proximity={120}
-                spread={25}
+                proximity={100}
+                spread={20}
                 variant="default"
                 glow={false}
                 disabled={false}
-                movementDuration={1.5}
+                movementDuration={2}
                 borderWidth={2}
+                className="rounded-xl"
               />
 
               {/* Card */}
-              <div className="relative z-10 bg-card rounded-xl p-6 h-full border border-border">
+              <div className="relative z-10 rounded-xl bg-card border border-border p-6">
                 <p className="text-muted-foreground mb-4">
                   "{testimonial.content}"
                 </p>
