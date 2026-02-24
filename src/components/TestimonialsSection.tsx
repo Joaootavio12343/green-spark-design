@@ -3,7 +3,7 @@
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import { Star } from "lucide-react";
-import { GlowingEffect } from "@/components/ui/glowing-effect"; // ajuste o caminho se necessário
+import { GlowingEffect } from "@/components/ui/glowing-effect";
 
 const testimonials = [
   {
@@ -28,7 +28,7 @@ const testimonials = [
   },
 ];
 
-const TestimonialsSection = () => {
+export default function TestimonialsSection() {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: "-80px" });
 
@@ -39,6 +39,7 @@ const TestimonialsSection = () => {
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.6 }}
           className="text-center mb-14"
         >
           <span className="text-primary text-sm font-semibold uppercase tracking-wider">
@@ -57,14 +58,13 @@ const TestimonialsSection = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.4, delay: i * 0.1 }}
-              className="relative group rounded-2xl"
+              className="relative rounded-2xl group"
             >
               {/* Efeito RGB */}
               <GlowingEffect
                 disabled={false}
                 proximity={80}
                 spread={40}
-                blur={0}
                 movementDuration={0.6}
                 borderWidth={2}
                 className="rounded-2xl"
@@ -109,6 +109,4 @@ const TestimonialsSection = () => {
       </div>
     </section>
   );
-};
-
-export default TestimonialsSection;
+}
