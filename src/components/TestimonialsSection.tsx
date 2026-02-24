@@ -1,6 +1,7 @@
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import { Star } from "lucide-react";
+import { GlowingEffect } from "@/components/ui/glowing-effect";
 
 const testimonials = [
   {
@@ -52,24 +53,51 @@ const TestimonialsSection = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.4, delay: i * 0.1 }}
-              className="glass-card rounded-2xl p-6 border-primary/10 hover:border-primary/25 transition-all duration-300"
+              className="relative"
             >
-              <div className="flex gap-1 mb-4">
-                {Array.from({ length: 5 }).map((_, j) => (
-                  <Star key={j} size={14} className="fill-primary text-primary" />
-                ))}
-              </div>
-              <p className="text-muted-foreground text-sm leading-relaxed mb-5 italic">
-                "{t.text}"
-              </p>
-              <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center text-primary font-display font-bold text-sm">
-                  {t.name[0]}
+              {/* 🔥 WRAPPER DO GLOW */}
+              <div className="relative rounded-2xl border border-primary/10 hover:border-primary/25 transition-all duration-300">
+                
+                <GlowingEffect
+                  spread={40}
+                  glow={true}
+                  disabled={false}
+                  proximity={64}
+                  inactiveZone={0.01}
+                  borderWidth={3}
+                />
+
+                {/* CARD ORIGINAL (INALTERADO) */}
+                <div className="relative glass-card rounded-2xl p-6">
+                  <div className="flex gap-1 mb-4">
+                    {Array.from({ length: 5 }).map((_, j) => (
+                      <Star
+                        key={j}
+                        size={14}
+                        className="fill-primary text-primary"
+                      />
+                    ))}
+                  </div>
+
+                  <p className="text-muted-foreground text-sm leading-relaxed mb-5 italic">
+                    "{t.text}"
+                  </p>
+
+                  <div className="flex items-center gap-3">
+                    <div className="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center text-primary font-display font-bold text-sm">
+                      {t.name[0]}
+                    </div>
+                    <div>
+                      <p className="font-semibold text-sm text-foreground">
+                        {t.name}
+                      </p>
+                      <p className="text-xs text-muted-foreground">
+                        {t.role}
+                      </p>
+                    </div>
+                  </div>
                 </div>
-                <div>
-                  <p className="font-semibold text-sm text-foreground">{t.name}</p>
-                  <p className="text-xs text-muted-foreground">{t.role}</p>
-                </div>
+
               </div>
             </motion.div>
           ))}
