@@ -46,6 +46,12 @@
     --sidebar-border: 216 16% 86%;
     --sidebar-ring: 150 100% 35%;
 
+    --color-1: 0 100% 63%;
+    --color-2: 270 100% 63%;
+    --color-3: 210 100% 63%;
+    --color-4: 195 100% 63%;
+    --color-5: 90 100% 63%;
+
     --glow-primary: 0 0 20px hsl(150 100% 35% / 0.12);
     --glow-primary-strong: 0 0 40px hsl(150 100% 35% / 0.2);
     --gradient-primary: linear-gradient(135deg, hsl(150 100% 35%), hsl(160 100% 30%));
@@ -91,6 +97,12 @@
     --sidebar-accent-foreground: 210 20% 92%;
     --sidebar-border: 216 18% 14%;
     --sidebar-ring: 150 100% 50%;
+
+    --color-1: 0 100% 63%;
+    --color-2: 270 100% 63%;
+    --color-3: 210 100% 63%;
+    --color-4: 195 100% 63%;
+    --color-5: 90 100% 63%;
 
     --glow-primary: 0 0 30px hsl(150 100% 50% / 0.2);
     --glow-primary-strong: 0 0 60px hsl(150 100% 50% / 0.35);

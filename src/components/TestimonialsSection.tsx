@@ -60,14 +60,14 @@ export function TestimonialsSection() {
               className="relative rounded-xl"
             >
               <GlowingEffect
-                blur={10}
-                inactiveZone={0.7}
-                proximity={100}
-                spread={20}
+                blur={14}
+                inactiveZone={0.5}
+                proximity={150}
+                spread={40}
                 variant="default"
-                glow={false}
+                glow={true}
                 disabled={false}
-                movementDuration={2}
+                movementDuration={1.5}
                 borderWidth={2}
                 className="rounded-xl"
               />

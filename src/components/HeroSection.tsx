@@ -1,28 +1,26 @@
 import React, { useRef, useCallback, useEffect } from "react";
 import { motion } from "framer-motion";
 import { ArrowRight, Play, MessageCircle } from "lucide-react";
+import { RainbowButton } from "@/components/ui/rainbow-button";
 import heroImage from "@/assets/hero-image.jpg";
-
 
 const WA_LINK =
   "https://wa.me/5537998469852?text=Olá,%20vim%20pelo%20site%20e%20quero%20um%20orçamento.";
 const DISCORD_LINK = "https://discord.gg/NGBZh2yKk7";
 
 /* ───────────────────────── */
-/* BOTÃO MAGNÉTICO APPLE    */
+/* BOTÃO MAGNÉTICO + RAINBOW */
 /* ───────────────────────── */
 
-const AppleMagneticButton = ({ href, children }) => {
-  const ref = useRef<HTMLAnchorElement>(null);
+const MagneticRainbowButton = ({ href, children }: { href: string; children: React.ReactNode }) => {
+  const ref = useRef<HTMLDivElement>(null);
 
   const handleMouseMove = useCallback((e: React.MouseEvent) => {
     const el = ref.current;
     if (!el) return;
-
     const rect = el.getBoundingClientRect();
     const x = e.clientX - rect.left - rect.width / 2;
     const y = e.clientY - rect.top - rect.height / 2;
-
     el.style.transform = `translate(${x * 0.25}px, ${y * 0.25}px)`;
   }, []);
 
@@ -33,15 +31,18 @@ const AppleMagneticButton = ({ href, children }) => {
   }, []);
 
   return (
-    <a
+    <div
       ref={ref}
-      href={href}
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
-      className="group inline-flex items-center gap-2 px-7 py-3.5 rounded-xl font-semibold shadow-xl transition-all duration-300"
+      className="transition-transform duration-300 will-change-transform"
     >
-      {children}
-    </a>
+      <a href={href} target="_blank" rel="noopener noreferrer">
+        <RainbowButton className="px-7 py-3.5 text-base font-semibold shadow-xl">
+          {children}
+        </RainbowButton>
+      </a>
+    </div>
   );
 };
 
@@ -60,7 +61,6 @@ const HeroSection = () => {
     let mouseY = 0;
     let currentX = 0;
     let currentY = 0;
-
     const speed = 0.08;
 
     const handleMouseMove = (e: MouseEvent) => {
@@ -72,11 +72,7 @@ const HeroSection = () => {
     const animate = () => {
       currentX += (mouseX - currentX) * speed;
       currentY += (mouseY - currentY) * speed;
-
-      container.style.transform = `translate(${currentX * 0.05}px, ${
-        currentY * 0.05
-      }px)`;
-
+      container.style.transform = `translate(${currentX * 0.05}px, ${currentY * 0.05}px)`;
       requestAnimationFrame(animate);
     };
 
@@ -105,27 +101,29 @@ const HeroSection = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7 }}
           >
-            <h1 className="font-display text-5xl font-bold mb-6">
+            {/* Badge */}
+            <span className="inline-block px-4 py-1.5 rounded-full border border-primary/40 text-primary text-xs font-semibold tracking-wider uppercase mb-6">
+              Designer Gráfico Profissional
+            </span>
+
+            <h1 className="font-display text-5xl md:text-6xl font-bold mb-6 leading-tight">
               Design que{" "}
-              <span className="text-gradient">Converte</span>
+              <span className="text-gradient">Converte</span> e{" "}
+              <span className="text-gradient">Impressiona</span>
             </h1>
 
             <p className="text-lg text-muted-foreground max-w-lg mb-10">
-              Identidade visual estratégica que gera resultados reais.
+              Transformo marcas em experiências visuais memoráveis.
+              Identidade visual estratégica que gera resultados reais para
+              o seu negócio.
             </p>
 
             {/* BOTÕES PRINCIPAIS */}
-            <div className="flex flex-wrap gap-4">
-              
-              <a
-                href={WA_LINK}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl bg-primary text-primary-foreground font-semibold shadow-xl hover:shadow-primary/30 transition-all duration-300 btn-glow"
-              >
+            <div className="flex flex-wrap gap-4 items-center">
+              <MagneticRainbowButton href={WA_LINK}>
                 Solicitar Orçamento
-                <ArrowRight size={18} className="transition-transform duration-300 group-hover:translate-x-1" />
-              </a>
+                <ArrowRight size={18} className="ml-2 transition-transform duration-300 group-hover:translate-x-1" />
+              </MagneticRainbowButton>
 
               <a
                 href="#portfolio"
@@ -161,6 +159,22 @@ const HeroSection = () => {
                 Discord
               </a>
             </div>
+
+            {/* STATS */}
+            <div className="flex items-center gap-8 mt-10">
+              <div>
+                <span className="block text-2xl font-bold text-gradient">150+</span>
+                <span className="text-xs text-muted-foreground">Projetos</span>
+              </div>
+              <div>
+                <span className="block text-2xl font-bold text-gradient">98%</span>
+                <span className="text-xs text-muted-foreground">Satisfação</span>
+              </div>
+              <div>
+                <span className="block text-2xl font-bold text-gradient">5+</span>
+                <span className="text-xs text-muted-foreground">Anos exp.</span>
+              </div>
+            </div>
           </motion.div>
 
           {/* IMAGE */}
@@ -173,14 +187,13 @@ const HeroSection = () => {
             <div className="relative rounded-2xl overflow-hidden">
               <img
                 src={heroImage}
-                alt="Portfólio"
+                alt="Portfólio de design gráfico profissional"
                 className="w-full h-auto rounded-2xl"
               />
             </div>
           </motion.div>
         </div>
       </div>
-
     </section>
   );
 };
