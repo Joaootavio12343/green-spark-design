@@ -2,7 +2,7 @@ import React, { useRef, useCallback, useEffect } from "react";
 import { motion } from "framer-motion";
 import { ArrowRight, Play, MessageCircle } from "lucide-react";
 import heroImage from "@/assets/hero-image.jpg";
-import { RainbowButton } from "@/components/ui/rainbow-button";
+
 
 const WA_LINK =
   "https://wa.me/5537998469852?text=Olá,%20vim%20pelo%20site%20e%20quero%20um%20orçamento.";
@@ -117,21 +117,15 @@ const HeroSection = () => {
             {/* BOTÕES PRINCIPAIS */}
             <div className="flex flex-wrap gap-4">
               
-              {/* 🔥 RAINBOW MAIS VISÍVEL */}
-              <RainbowButton
-                asChild
-                className="relative p-[2px] rounded-xl animate-[gradient_4s_linear_infinite] bg-[linear-gradient(90deg,#ff0080,#ff8c00,#40e0d0,#ff0080)] bg-[length:300%_300%] shadow-[0_0_30px_rgba(255,0,128,0.4)]"
+              <a
+                href={WA_LINK}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl bg-primary text-primary-foreground font-semibold shadow-xl hover:shadow-primary/30 transition-all duration-300 btn-glow"
               >
-                <AppleMagneticButton href={WA_LINK}>
-                  <span className="bg-background rounded-xl px-7 py-3.5 flex items-center gap-2">
-                    Solicitar Orçamento
-                    <ArrowRight
-                      size={18}
-                      className="transition-transform duration-300 group-hover:translate-x-1"
-                    />
-                  </span>
-                </AppleMagneticButton>
-              </RainbowButton>
+                Solicitar Orçamento
+                <ArrowRight size={18} className="transition-transform duration-300 group-hover:translate-x-1" />
+              </a>
 
               <a
                 href="#portfolio"
@@ -187,14 +181,6 @@ const HeroSection = () => {
         </div>
       </div>
 
-      {/* 🔥 ANIMAÇÃO DO GRADIENT */}
-      <style jsx global>{`
-        @keyframes gradient {
-          0% { background-position: 0% 50%; }
-          50% { background-position: 100% 50%; }
-          100% { background-position: 0% 50%; }
-        }
-      `}</style>
     </section>
   );
 };
