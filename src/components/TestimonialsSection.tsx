@@ -60,19 +60,19 @@ export function TestimonialsSection() {
               className="relative rounded-xl"
             >
               <GlowingEffect
-                blur={14}
-                inactiveZone={0.5}
-                proximity={150}
-                spread={40}
+                blur={18}
+                inactiveZone={0.4}
+                proximity={200}
+                spread={50}
                 variant="default"
                 glow={true}
                 disabled={false}
-                movementDuration={1.5}
-                borderWidth={2}
+                movementDuration={1.2}
+                borderWidth={3}
                 className="rounded-xl"
               />
 
-              <div className="relative z-10 rounded-xl bg-card border border-border p-6 h-full flex flex-col justify-between gap-4">
+              <div className="relative z-10 rounded-xl bg-card border border-border p-6 h-full flex flex-col justify-between gap-4 shadow-[var(--card-shadow)]">
                 {/* Stars */}
                 <div className="flex gap-1">
                   {Array.from({ length: 5 }).map((_, s) => (
