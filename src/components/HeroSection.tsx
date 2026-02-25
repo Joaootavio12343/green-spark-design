@@ -184,11 +184,11 @@ const HeroSection = () => {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="relative hidden lg:block"
           >
-            <div className="relative rounded-2xl overflow-hidden">
+            <div className="relative rounded-2xl overflow-hidden p-[3px] bg-gradient-to-br from-primary/60 via-primary/20 to-primary/60 shadow-[var(--neon-glow)]">
               <img
                 src={heroImage}
                 alt="Portfólio de design gráfico profissional"
-                className="w-full h-auto rounded-2xl"
+                className="w-full h-auto rounded-2xl relative z-10"
               />
             </div>
           </motion.div>
