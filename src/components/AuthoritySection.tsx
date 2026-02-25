@@ -4,11 +4,11 @@ import { Zap, Target, Palette, Clock } from "lucide-react";
 import designerPhoto from "@/assets/designer-photo.jpg";
 
 const stats = [
-  { icon: Palette, title: "+150 Projetos", desc: "Entregues com excelência" },
-  { icon: Clock, title: "Atendimento Rápido", desc: "Respostas em até 2h" },
-  { icon: Target, title: "Foco em Conversão", desc: "Design estratégico" },
-  { icon: Zap, title: "Identidade Única", desc: "Marcas memoráveis" },
-];
+{ icon: Palette, title: "+150 Projetos", desc: "Entregues com excelência" },
+{ icon: Clock, title: "Atendimento Rápido", desc: "Respostas em até 2h" },
+{ icon: Target, title: "Foco em Conversão", desc: "Design estratégico" },
+{ icon: Zap, title: "Identidade Única", desc: "Marcas memoráveis" }];
+
 
 const AuthoritySection = () => {
   const ref = useRef(null);
@@ -24,15 +24,15 @@ const AuthoritySection = () => {
             initial={{ opacity: 0, x: -40 }}
             animate={inView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.6 }}
-            className="relative"
-          >
+            className="relative">
+
             <div className="relative w-72 h-72 md:w-80 md:h-80 mx-auto rounded-2xl overflow-hidden gradient-border">
               <img
-                src={designerPhoto}
+
                 alt="Designer gráfico profissional"
                 className="w-full h-full object-cover"
-                loading="lazy"
-              />
+                loading="lazy" src="" />
+
             </div>
             <div className="absolute -bottom-6 -right-6 w-40 h-40 rounded-full bg-primary/10 blur-[80px]" />
           </motion.div>
@@ -40,8 +40,8 @@ const AuthoritySection = () => {
           <motion.div
             initial={{ opacity: 0, x: 40 }}
             animate={inView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.6, delay: 0.2 }}
-          >
+            transition={{ duration: 0.6, delay: 0.2 }}>
+
             <span className="text-primary text-sm font-semibold uppercase tracking-wider">
               Sobre Mim
             </span>
@@ -56,27 +56,27 @@ const AuthoritySection = () => {
             </p>
 
             <div className="grid sm:grid-cols-2 gap-4">
-              {stats.map((s, i) => (
-                <motion.div
-                  key={s.title}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={inView ? { opacity: 1, y: 0 } : {}}
-                  transition={{ duration: 0.4, delay: 0.3 + i * 0.1 }}
-                  className="glass-card rounded-xl p-4 hover:border-primary/30"
-                >
+              {stats.map((s, i) =>
+              <motion.div
+                key={s.title}
+                initial={{ opacity: 0, y: 20 }}
+                animate={inView ? { opacity: 1, y: 0 } : {}}
+                transition={{ duration: 0.4, delay: 0.3 + i * 0.1 }}
+                className="glass-card rounded-xl p-4 hover:border-primary/30">
+
                   <s.icon size={20} className="text-primary mb-2" />
                   <p className="font-display font-semibold text-sm text-foreground">
                     {s.title}
                   </p>
                   <p className="text-xs text-muted-foreground mt-0.5">{s.desc}</p>
                 </motion.div>
-              ))}
+              )}
             </div>
           </motion.div>
         </div>
       </div>
-    </section>
-  );
+    </section>);
+
 };
 
 export default AuthoritySection;
